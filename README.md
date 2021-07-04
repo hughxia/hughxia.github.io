@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## A Chinees Blog site based on Hugo ,Github Pages and Github Action
 
 You can use the [editor on GitHub](https://github.com/hughxia/hughxia.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 

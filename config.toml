@@ -1,0 +1,49 @@
+baseURL = "https://hughxia.github.io"
+DefaultContentLanguage = "zh"
+languageCode = "en-us"
+title = "Hugh's Blog"
+theme = "diary"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "perldoc"
+    tabWidth = 4
+
+[params]
+subtitle = "Themed by Diary."
+enableGitalk = true
+
+# Twitter Card and Open Graph settings
+enableOpenGraph = true
+enableTwitterCards = true
+title = "My Blog" # will set 'og:site_name'
+description = "My HomePage Description"  # will set 'og:description'
+
+[params.gitalk]
+  owner = "user"
+  repo = "repo name"
+  client_id = "your client id"
+  client_secret = "your client secret"
+[taxonomies]
+   tag = "tags"
+   category = "categories"
+
+[[menu.main]]
+url = "/posts"
+name = "归档"
+weight = 1
+[[menu.main]]
+url = "/categories"
+name = "分类"
+weight = 2
+[[menu.main]]
+url = "/tags"
+name = "标签"
+weight = 3
