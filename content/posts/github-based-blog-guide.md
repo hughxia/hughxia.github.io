@@ -1,5 +1,5 @@
 ---
-title: "基于Github搭建博客指南: Github Pages + Github Actions + Hugo"
+title: "基于Github搭建博客指南"
 date: 2021-07-10T00:16:41+08:00
 draft: true
 tags: ["github pages", "github actions", "hugo"]
@@ -24,9 +24,9 @@ categories: ["Tool"]
 - [GitHub](https://github.com)
 - Markdown
 
-### 效果展示：https://hughxia.github.io/
+效果展示：[https://hughxia.github.io](https://hughxia.github.io/)
 
-### 项目地址：https://github.com/hughxia/hughxia.github.io
+项目地址：[https://github.com/hughxia/hughxia.github.io](https://github.com/hughxia/hughxia.github.io)
 
 # Github Pages
 
