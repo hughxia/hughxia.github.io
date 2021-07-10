@@ -86,11 +86,11 @@ hugo new site .
 git submodule add https://github.com/htdvisser/hugo-base16-theme.git themes/base16
 ```
 
->**注意：** 当我们使用`git clone`命令拉取远程仓库的时候，默认不会拉取子模块代码，可以通过添加`--recurse-submodules`参数来拉取。 或者在主项目中执行以下命令：
->
->``` Shell
->git submodule update --remote --merge 
->```
+**注意：** 当我们使用`git clone`命令拉取远程仓库的时候，默认不会拉取子模块代码，可以通过添加`--recurse-submodules`参数来拉取。 或者在主项目中执行以下命令：
+
+``` Shell
+git submodule update --remote --merge 
+```
 
 ### 4. 编辑配置
 
