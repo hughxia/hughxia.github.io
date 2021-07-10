@@ -1,7 +1,7 @@
 ---
 title: "基于Github搭建博客指南"
 date: 2021-07-10T00:16:41+08:00
-draft: true
+draft: false
 tags: ["github pages", "github actions", "hugo"]
 categories: ["Tool"]
 ---
@@ -124,3 +124,5 @@ hugo server -D
 其中 `-D` 参数指会渲染草稿，通过 `hugo new posts`命令创建出来的文章顶部Meta信息中默认**draft**设置为*true*,当编辑完成准备正式发布时，需要将其改为*false*。
 
 ## 通过Github Actions完成自动部署工作
+
+TODO
