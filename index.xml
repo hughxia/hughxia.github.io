@@ -73,7 +73,7 @@ alt="Setting">
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>注意：&lt;/strong> 当我们使用&lt;code>git clone&lt;/code>命令拉取远程仓库的时候，默认不会拉取子模块代码，可以通过添加&lt;code>--recurse-submodules&lt;/code>参数来拉取。 或者在主项目中执行以下命令：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">git submodule update --remote --merge
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="编辑配置">编辑配置&lt;/h3>
-&lt;p>在项目主目录下可以找到&lt;code>config.toml&lt;/code>文件，这是整个Hugo项目的配置文件，我们修改&lt;code>baseURL&lt;/code>, &lt;code>title&lt;/code>和&lt;code>theme&lt;/code>这几个字段完成基本配置。其中不同的主题会提供丰富的自定义配置，可以参考主题的&lt;em>homepage&lt;/em>按需配置。示例：&lt;/p>
+&lt;p>在项目主目录下可以找到 &lt;code>config.yaml&lt;/code> 文件，这是整个Hugo项目的配置文件，我们修改 &lt;code>baseURL&lt;/code> , &lt;code>title&lt;/code> 和 &lt;code>theme&lt;/code> 这几个字段完成基本配置。其中不同的主题会提供丰富的自定义配置，可以参考对应主题仓库的 &lt;strong>README.md&lt;/strong> 按需配置。示例：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Yaml" data-lang="Yaml">&lt;span class="nt">baseurl&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://hughxia.github.io/&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">languageCode&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zh-cn&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">theme&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo-theme-stack&lt;/span>&lt;span class="w">
@@ -81,9 +81,9 @@ alt="Setting">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="创建文章">创建文章&lt;/h3>
 &lt;p>在主目录下执行以下命令创建一篇文章：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">hugo new post/first-post.md
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Hugo会帮我们在md文件头部以toml语法的形式添加一些Meta信息，我们在&lt;code>---&lt;/code>下方进行文章内容的编辑。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Hugo会帮我们在md文件头部以与配置文件格式相同语法的形式添加一些Meta信息，我们在&lt;code>---&lt;/code>下方进行文章内容的编辑。&lt;/p>
 &lt;h3 id="本地预览">本地预览&lt;/h3>
-&lt;p>启动hugo server，即可在本地&lt;a class="link" href="http://localhost:1313" target="_blank" rel="noopener"
+&lt;p>启动 &lt;code>hugo server&lt;/code>，即可在本地&lt;a class="link" href="http://localhost:1313" target="_blank" rel="noopener"
 >http://localhost:1313&lt;/a>进行预览。&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">hugo server -D
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>其中 &lt;code>-D&lt;/code> 参数指会渲染草稿，通过 &lt;code>hugo new posts&lt;/code>命令创建出来的文章顶部Meta信息中默认&lt;strong>draft&lt;/strong>设置为&lt;em>true&lt;/em>,当编辑完成准备正式发布时，需要将其改为&lt;em>false&lt;/em>。&lt;/p>
