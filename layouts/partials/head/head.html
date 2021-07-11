@@ -1,8 +1,13 @@
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='keywords' content="hughXia, Blog, 博客, Github">
 
 {{- $description := partialCached "data/description" . .RelPermalink -}}
 <meta name='description' content='{{ $description }}'>
+<!-- bing seo -->
+<meta name="msvalidate.01" content="21FE7C08C499856452941D70B1212D52" />
+<!-- google seo -->
+<meta name="google-site-verification" content="N1XLANbWjQC0FlxEizFwsHdTGbY1UsBMip6Sm5qeikg" />
 
 {{- $title := partialCached "data/title" . .RelPermalink -}}
 <title>{{ $title }}</title>
@@ -14,11 +19,11 @@
 {{- partial "head/opengraph/include.html" . -}}
 
 {{- range .AlternativeOutputFormats -}}
-    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{- end -}}
 
 {{ with .Site.Params.favicon }}
-    <link rel="shortcut icon" href="{{ . }}" />
+<link rel="shortcut icon" href="{{ . }}" />
 {{ end }}
 
 {{- template "_internal/google_analytics.html" . -}}
