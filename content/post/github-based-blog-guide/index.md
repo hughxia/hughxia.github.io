@@ -99,7 +99,7 @@ git submodule update --remote --merge
 
 ### 编辑配置
 
-在项目主目录下可以找到`config.toml`文件，这是整个Hugo项目的配置文件，我们修改`baseURL`, `title`和`theme`这几个字段完成基本配置。其中不同的主题会提供丰富的自定义配置，可以参考主题的*homepage*按需配置。示例：
+在项目主目录下可以找到 `config.yaml` 文件，这是整个Hugo项目的配置文件，我们修改 `baseURL` ,  `title` 和 `theme` 这几个字段完成基本配置。其中不同的主题会提供丰富的自定义配置，可以参考对应主题仓库的 **README.md** 按需配置。示例：
 
 ``` Yaml
 baseurl: https://hughxia.github.io/
@@ -116,11 +116,11 @@ title: Hugh's Blog
 hugo new post/first-post.md
 ```
 
-Hugo会帮我们在md文件头部以toml语法的形式添加一些Meta信息，我们在`---`下方进行文章内容的编辑。
+Hugo会帮我们在md文件头部以与配置文件格式相同语法的形式添加一些Meta信息，我们在`---`下方进行文章内容的编辑。
 
 ### 本地预览
 
-启动hugo server，即可在本地[http://localhost:1313](http://localhost:1313)进行预览。
+启动 `hugo server`，即可在本地[http://localhost:1313](http://localhost:1313)进行预览。
 
 ``` Shell
 hugo server -D
