@@ -33,7 +33,7 @@ jobs:
         # uses: peaceiris/actions-hugo@2e89aa66d0093e4cd14751b3028fc1a179452c2e
         uses: peaceiris/actions-hugo@v2.4.13
         with:
-          hugo-version: "0.68.3"
+          hugo-version: "0.84.4"
 
       # Runs a single command using the runners shell
       - name: Build
