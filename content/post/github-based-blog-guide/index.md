@@ -8,20 +8,20 @@ tags:
 categories: 
   - Tool
 image: github.png
-description: 本文会介绍如何基于 Github Pages + Github Actions + Hugo 搭建个人博客，之后你只需要完全专注于文章创作，其余事情完全不用操心。
+slug: github-based-blog-guide
+description: 本文会介绍如何基于 Github Pages + Github Actions + Hugo 搭建个人博客网站。
 ---
 
 ## 前言
 
-本文会介绍如何基于 Github Pages + Github Actions + Hugo 搭建个人博客，之后你只需要完全专注于文章创作，其余事情完全不用操心。它主要包括以下特性：
+本文会介绍如何基于 Github Pages + Github Actions + Hugo 搭建个人博客网站，它主要包括以下特性：
 
 - 免费托管
 - 版本控制
 - 全自动部署
 - Markdown语法支持
 - 个性化主题
-- 支持绑定自定义域名
-- 丰富的拓展性
+- 支持自定义域名
 
 ### 前置知识
 
@@ -38,34 +38,34 @@ description: 本文会介绍如何基于 Github Pages + Github Actions + Hugo �
 
 项目地址：[https://github.com/hughxia/hughxia.github.io](https://github.com/hughxia/hughxia.github.io)
 
-## 创建GitHub Pages站点
+## 创建 GitHub Pages 站点
 
 > [Github Pages](https://pages.github.com/) 适用于具有 GitHub Free 和组织的 GitHub Free 的公共仓库，以及具有 GitHub Pro、GitHub Team、GitHub Enterprise Cloud 和 GitHub Enterprise Server 的公共和私有仓库。
 
-Github Pages 可以帮助我们从特定的GitHub Repo生成静态站点。这里我们参照[Github Pages 官方文档](https://docs.github.com/cn/pages/getting-started-with-github-pages/creating-a-github-pages-site)创建属于你的个人站点。
+Github Pages 可以帮助我们从特定的 GitHub Repo 生成静态站点。这里我们参照[Github Pages 官方文档](https://docs.github.com/cn/pages/getting-started-with-github-pages/creating-a-github-pages-site)创建属于你的个人站点。
 
 ### 创建仓库
 
-首先新建一个Repository，Repository name 根据 Owner的不同，名字要求分别为`<user>.github.io` 或 `<organization>.github.io`格式。因为是个人博客，我们使用自己的用户名。
+首先新建一个 Repository，Repository name 根据 Owner 的不同，名字要求分别为 `<user>.github.io` 或 `<organization>.github.io` 格式。因为是个人博客，我们使用自己的用户名。
 
 ### 查看设置
 
-当创建完成后，就可以在 Github Repository 页中看到刚刚创建的 `<user>.github.io` 项目，我们可以在当前Repo的 **Settings** 菜单中的*Pages*页，进行相关设置。
+当创建完成后，就可以在 Github Repository 页中看到刚刚创建的 `<user>.github.io` ，我们可以在此 Repo 上方的 **Settings** 菜单中的 *Pages* 页，进行相关设置。
 ![Setting](github-pages-setting.jpeg)
 
 在 *Source* 项中可以配置站点的发布源，默认应为 `main` 分支的根目录。图中我设置为了 `gh-pages` 分支，原因后面再讲。
 
 在 *Custom domain* 项则可以配置自定义域名，并启用HTTPS。
 
-## 使用Hugo生成博客框架
+## 使用 Hugo 生成博客框架
 
 > [Hugo](https://gohugo.io/) is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
 
-目前我们的个人站点只有一个简单的静态页面，要搭建完整的Blog系统还需要*博客生成器*的帮助。目前主流的三大工具分别为[Hugo](https://github.com/gohugoio/hugo)，[Jekyll](https://github.com/jekyll/jekyll)和[Hexo](https://github.com/hexojs/hexo)。其中Hugo的Star数最多，编译速度也最快，这里我们选用它来做示例。
+要搭建完整的 Blog 还需要*博客生成器*的帮助。目前主流的三大工具分别为[Hugo](https://github.com/gohugoio/hugo)，[Jekyll](https://github.com/jekyll/jekyll)和[Hexo](https://github.com/hexojs/hexo)。其中Hugo的 🌟 最多，编译速度也最快，这里我们选用它来做示例。
 
 ### 安装Hugo
 
-MacOS和Linux系统都可以直接在命令行进行安装，Windows系统的安装可以参照[官方文档](https://gohugo.io/getting-started/installing)。这里以Ubuntu20.04为例，打开终端，输入安装命令：
+MacOS 和 Linux 系统都可以直接在命令行进行安装，Windows 系统的安装可以参照[官方文档](https://gohugo.io/getting-started/installing)。这里以 Ubuntu20.04 为例，打开终端，输入安装命令：
 
 ``` Shell
 apt install hugo
@@ -87,7 +87,7 @@ hugo new site . -f yaml
 
 ### 选择主题
 
-[官方主题页](https://themes.gohugo.io/)有丰富的主题可供选择，下面以我选择的[hugo-theme-stack](https://themes.gohugo.io/themes/hugo-theme-stack/)为例讲解。
+[官方主题页](https://themes.gohugo.io/)有丰富的主题可供选择，下面以我目前使用的 [hugo-theme-stack](https://themes.gohugo.io/themes/hugo-theme-stack/) 为例。
 
 这里我们可以通过 [Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) 机制将主题仓库克隆下来：
 
@@ -103,7 +103,7 @@ git submodule update --remote --merge
 
 ### 编辑配置
 
-在项目主目录下可以找到 `config.yaml` 文件，这是整个Hugo项目的配置文件，我们修改 `baseURL` ,  `title` 和 `theme` 这几个字段完成基本配置。其中不同的主题会提供丰富的自定义配置，可以参考对应主题仓库的 **README.md** 按需配置。示例：
+在项目根目录下可以找到 `config.yaml` 文件，这是整个Hugo项目的配置文件，我们修改 `baseurl` , `languageCode` ,  `title` 和 `theme` 这几个字段完成基本配置。主题往往都会提供丰富的自定义配置，可以自行查阅项目文档。
 
 ``` Yaml
 baseurl: https://hughxia.github.io/
@@ -114,13 +114,13 @@ title: Hugh's Blog
 
 ### 创建文章
 
-在主目录下执行以下命令创建一篇文章：
+执行以下命令创建一篇文章：
 
 ``` Shell
 hugo new post/first-post.md
 ```
 
-Hugo会帮我们在Markdown文件头部以与配置文件格式相同语法的形式添加一些Meta信息，我们在分隔线 `---` 下方进行文章内容的编辑。
+Hugo会在 Markdown 文件头部以配置文件相同语法的形式添加一些 Meta 信息，我们在分隔线 `---` 下方进行文章内容的编辑。
 
 ### 本地预览
 
@@ -130,17 +130,17 @@ Hugo会帮我们在Markdown文件头部以与配置文件格式相同语法的�
 hugo server -D
 ```
 
-其中 `-D` 参数指会渲染草稿，通过 `hugo new posts` 命令创建出来的文章顶部Meta信息中默认**draft**设置为 *true*,当编辑完成准备正式发布时，需要将其改为 *false*。
+其中 `-D` 参数指会渲染草稿，通过 `hugo new posts` 命令创建出来的文章顶部Meta信息中默认**draft**设置为 *true* ，当编辑完成准备正式发布时，需要将其改为 *false*。
 
-## 通过Github Actions完成自动部署工作
+## 通过 Github Actions 自动部署
 
 > 在 [GitHub Actions](https://docs.github.com/cn/actions) 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包括 CI/CD），并将操作合并到完全自定义的工作流程中。
 
 ### 部署问题
 
-现在可以通过 `hugo` 命令在 **public** 文件夹下生成最终页面。我们可以将这个文件夹也加入到Git的版本控制，然后通过在上述 Github 的 **Settings** 中将发布源改为 **public** 完成部署。
+现在可以通过 `hugo` 命令在 **public** 文件夹下生成最终页面。我们可以将这个文件夹也加入到Git的版本控制，然后通过在上述 **Settings** 页中将发布源改为 **public** 来完成部署。
 
-不过，这需要我们每次在完成文章创作，同步至 Github 之前都需要进行生成 **public** 文件夹，这样不仅麻烦而且会在我们当前的仓库中增加很多冗余文件。好在 Github 官方推出了一件 CI 利器：Github Actions，通过它可以完美地解决上述问题。
+不过，这需要我们每次在完成文章创作，同步至 Github 之前都需要主动生成 **public** 文件夹，这样不仅麻烦而且会在我们当前的仓库中增加很多冗余文件。好在 Github 官方推出了 CI 利器：Github Actions，通过它可以完美地解决上述问题。
 
 ### 基本概念
 
@@ -148,11 +148,11 @@ hugo server -D
 - **事件**（event）: 事件是触发工作流程的特定活动。
 - **作业**（job）: 作业是在同一运行服务器上执行的一组步骤。
 - **步骤**（step）: 步骤是可以在作业中运行命令的单个任务。
-- **操作**（action）: 操作 是独立命令，它们组合到步骤以创建作业。
+- **操作**（action）: 操作是独立命令，它们组合到步骤以创建作业。
 
 ### CI配置
 
-在 Github Repository 页中我们可以看到 **Actions** 菜单，在这里我们可以方便地创建一个 `Workflow` ，下面是我的配置：
+在 Github 的 Repo 页上方我们可以看到 **Actions** 菜单，在这里我们可以方便地创建一个 `Workflow` ，下面是我的配置：
 
 ```Yaml
 name: CI
@@ -202,18 +202,18 @@ jobs:
           publish_dir: ./public
 ```
 
-上述配置的意思是我们会在每次 `push` 代码至 `main` 分支的时，在最新的 Ubuntu 系统环境下完成下述操作：
+上述配置的意思是我们会在每次 `push` 代码至 `main` 分支的时，在最新的 Ubuntu 系统环境下依次完成以下操作：
 
 1. 将 `main` 分支最新代码检出
 
 2. 安装指定版本的 `hugo`
 
-3. 通过 `hugo --minify` 以最小化的方式打包网页
+3. 通过 `hugo --minify` 以最小化的方式打包网页至 **public** 文件
 
-4. 将打包后的 **public** 文件夹推送至当前仓库的  `gh-pages` 分支
+4. 将打包后的文件夹推送至当前仓库的  `gh-pages` 分支
 
-还记得上面在 *Pages* 图片的配置么，这时候 Github Pages 就会从 `gh-pages` 分支的根目录生成最终的网页。可以在 **Actions** 页查看 *Job* 的执行情况。当执行完成后，一般会需要等待 1 ~ 3 分钟左右，就可以在自己的博客主页看到最新的内容了。
+还记得上面在 *Pages* 图片中的配置吧，这时候 Github Pages 就会从 `gh-pages` 分支的根目录生成最终的网页。可以在 **Actions** 页查看 *Job* 的执行情况。当执行完成后，一般等待 1 ~ 3 分钟，就可以在自己的博客网站看到最新提交的内容了。
 
 ## 后记
 
-通过上面的步骤，我们基本完成了一个属于你自己的博客网站的搭建（别忘了定制你的个性化主题哟~），接下来就随心所欲地开始你的个人创作吧。
+通过上面的步骤，我们完成了一个属于你自己的博客网站的搭建（别忘了定制你的个性化主题哟~），接下来就随心所欲地开始你的内容创作吧。
