@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugh's Blog</title><link>https://hughxia.github.io/</link><description>Recent content on Hugh's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 11 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hughxia.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>基于Github搭建博客指南</title><link>https://hughxia.github.io/p/%E5%9F%BA%E4%BA%8Egithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/</link><pubDate>Sun, 11 Jul 2021 00:16:41 +0800</pubDate><guid>https://hughxia.github.io/p/%E5%9F%BA%E4%BA%8Egithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/</guid><description>&lt;img src="https://hughxia.github.io/p/%E5%9F%BA%E4%BA%8Egithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/github.png" alt="Featured image of post 基于Github搭建博客指南" />&lt;h2 id="前言">前言&lt;/h2>
-&lt;p>本文会介绍如何基于Github Pages + Github Actions + Hugo搭建个人博客，之后你只需要完全专注于文章创作，其余事情完全不用操心。它主要包括以下特性：&lt;/p>
+&lt;p>本文会介绍如何基于 Github Pages + Github Actions + Hugo 搭建个人博客，之后你只需要完全专注于文章创作，其余事情完全不用操心。它主要包括以下特性：&lt;/p>
 &lt;ul>
 &lt;li>免费托管&lt;/li>
 &lt;li>版本控制&lt;/li>
@@ -18,6 +18,10 @@
 &lt;li>Markdown（了解）&lt;/li>
 &lt;li>HTML&amp;amp;CSS（了解）&lt;/li>
 &lt;/ul>
+&lt;h3 id="必备条件">必备条件&lt;/h3>
+&lt;ul>
+&lt;li>Github 账户&lt;/li>
+&lt;/ul>
 &lt;p>效果展示：&lt;a class="link" href="https://hughxia.github.io/" target="_blank" rel="noopener"
 >https://hughxia.github.io&lt;/a>&lt;/p>
 &lt;p>项目地址：&lt;a class="link" href="https://github.com/hughxia/hughxia.github.io" target="_blank" rel="noopener"
@@ -25,14 +29,14 @@
 &lt;h2 id="创建github-pages站点">创建GitHub Pages站点&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;a class="link" href="https://pages.github.com/" target="_blank" rel="noopener"
->Github Pages&lt;/a> is available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server.&lt;/p>
+>Github Pages&lt;/a> 适用于具有 GitHub Free 和组织的 GitHub Free 的公共仓库，以及具有 GitHub Pro、GitHub Team、GitHub Enterprise Cloud 和 GitHub Enterprise Server 的公共和私有仓库。&lt;/p>
 &lt;/blockquote>
 &lt;p>Github Pages 可以帮助我们从特定的GitHub Repo生成静态站点。这里我们参照&lt;a class="link" href="https://docs.github.com/cn/pages/getting-started-with-github-pages/creating-a-github-pages-site" target="_blank" rel="noopener"
 >Github Pages 官方文档&lt;/a>创建属于你的个人站点。&lt;/p>
 &lt;h3 id="创建仓库">创建仓库&lt;/h3>
 &lt;p>首先新建一个Repository，Repository name 根据 Owner的不同，名字要求分别为&lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> 或 &lt;code>&amp;lt;organization&amp;gt;.github.io&lt;/code>格式。因为是个人博客，我们使用自己的用户名。&lt;/p>
 &lt;h3 id="查看设置">查看设置&lt;/h3>
-&lt;p>当创建完成后，就可以在Github Repository中看到刚刚创建的 &lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> 项目，我们可以在当前Repo的 &lt;strong>Setting&lt;/strong>菜单中的&lt;em>Pages&lt;/em>页，进行相关设置。
+&lt;p>当创建完成后，就可以在 Github Repository 页中看到刚刚创建的 &lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> 项目，我们可以在当前Repo的 &lt;strong>Settings&lt;/strong> 菜单中的&lt;em>Pages&lt;/em>页，进行相关设置。
 &lt;figure style="flex-grow: 180; flex-basis: 432px">
 &lt;a href="https://hughxia.github.io/p/%E5%9F%BA%E4%BA%8Egithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/github-pages-setting.jpeg" data-size="1148x637">&lt;img src="https://hughxia.github.io/p/%E5%9F%BA%E4%BA%8Egithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/github-pages-setting.jpeg"
 srcset="https://hughxia.github.io/p/%E5%9F%BA%E4%BA%8Egithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/github-pages-setting_hudba47096f0836875a6f919be997c5544_76921_480x0_resize_q75_box.jpeg 480w, https://hughxia.github.io/p/%E5%9F%BA%E4%BA%8Egithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/github-pages-setting_hudba47096f0836875a6f919be997c5544_76921_1024x0_resize_q75_box.jpeg 1024w"
@@ -43,8 +47,8 @@ alt="Setting">
 &lt;/a>
 &lt;figcaption>Setting&lt;/figcaption>
 &lt;/figure>&lt;/p>
-&lt;p>在&lt;em>Source&lt;/em>项中可以配置站点的发布源，默认应为&lt;code>main&lt;/code>分支的根目录。图中我设置为了&lt;code>gh-pages&lt;/code>分支，原因后面再讲。&lt;/p>
-&lt;p>在&lt;em>Custom domain&lt;/em>项则可以配置自定义域名，并使用HTTPS。&lt;/p>
+&lt;p>在 &lt;em>Source&lt;/em> 项中可以配置站点的发布源，默认应为 &lt;code>main&lt;/code> 分支的根目录。图中我设置为了 &lt;code>gh-pages&lt;/code> 分支，原因后面再讲。&lt;/p>
+&lt;p>在 &lt;em>Custom domain&lt;/em> 项则可以配置自定义域名，并启用HTTPS。&lt;/p>
 &lt;h2 id="使用hugo生成博客框架">使用Hugo生成博客框架&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
@@ -61,16 +65,16 @@ alt="Setting">
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>安装完成后，通过以下命令进行确认：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">hugo version
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="新建站点">新建站点&lt;/h3>
-&lt;p>进入上面创建的 &lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> 项目路径，执行下面的命令，Hugo会在当前路径创建站点框架。可以通过 &lt;code>-f yaml&lt;/code>参数指定配置文件格式。&lt;/p>
+&lt;p>进入上面创建的 &lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> 项目路径，执行下面的命令，Hugo会在当前路径创建站点框架。默认配置文件格式为 &lt;code>TOML&lt;/code> 格式，可以通过 &lt;code>-f yaml&lt;/code> 参数修改为我们熟悉的 &lt;code>YAML&lt;/code> 格式。&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">hugo new site . -f yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="选择主题">选择主题&lt;/h3>
 &lt;p>&lt;a class="link" href="https://themes.gohugo.io/" target="_blank" rel="noopener"
 >官方主题页&lt;/a>有丰富的主题可供选择，下面以我选择的&lt;a class="link" href="https://themes.gohugo.io/themes/hugo-theme-stack/" target="_blank" rel="noopener"
 >hugo-theme-stack&lt;/a>为例讲解。&lt;/p>
-&lt;p>这里我们可以通过&lt;a class="link" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener"
->Git Submodule&lt;/a>机制将主题仓库克隆下来：&lt;/p>
+&lt;p>这里我们可以通过 &lt;a class="link" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener"
+>Git Submodule&lt;/a> 机制将主题仓库克隆下来：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">git submodule add https://github.com/htdvisser/hugo-theme-stack.git themes/hugo-theme-stack
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>注意：&lt;/strong> 当我们使用&lt;code>git clone&lt;/code>命令拉取远程仓库的时候，默认不会拉取子模块代码，可以通过添加&lt;code>--recurse-submodules&lt;/code>参数来拉取。 或者在主项目中执行以下命令：&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>注意：&lt;/strong> 当我们使用 &lt;code>git clone&lt;/code> 命令拉取远程仓库的时候，默认不会拉取子模块代码，可以通过添加 &lt;code>--recurse-submodules&lt;/code> 参数来拉取。 或者在主项目中执行以下命令：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">git submodule update --remote --merge
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="编辑配置">编辑配置&lt;/h3>
 &lt;p>在项目主目录下可以找到 &lt;code>config.yaml&lt;/code> 文件，这是整个Hugo项目的配置文件，我们修改 &lt;code>baseURL&lt;/code> , &lt;code>title&lt;/code> 和 &lt;code>theme&lt;/code> 这几个字段完成基本配置。其中不同的主题会提供丰富的自定义配置，可以参考对应主题仓库的 &lt;strong>README.md&lt;/strong> 按需配置。示例：&lt;/p>
@@ -81,11 +85,90 @@ alt="Setting">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="创建文章">创建文章&lt;/h3>
 &lt;p>在主目录下执行以下命令创建一篇文章：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">hugo new post/first-post.md
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Hugo会帮我们在md文件头部以与配置文件格式相同语法的形式添加一些Meta信息，我们在&lt;code>---&lt;/code>下方进行文章内容的编辑。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Hugo会帮我们在Markdown文件头部以与配置文件格式相同语法的形式添加一些Meta信息，我们在分隔线 &lt;code>---&lt;/code> 下方进行文章内容的编辑。&lt;/p>
 &lt;h3 id="本地预览">本地预览&lt;/h3>
 &lt;p>启动 &lt;code>hugo server&lt;/code>，即可在本地&lt;a class="link" href="http://localhost:1313" target="_blank" rel="noopener"
 >http://localhost:1313&lt;/a>进行预览。&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">hugo server -D
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>其中 &lt;code>-D&lt;/code> 参数指会渲染草稿，通过 &lt;code>hugo new posts&lt;/code>命令创建出来的文章顶部Meta信息中默认&lt;strong>draft&lt;/strong>设置为&lt;em>true&lt;/em>,当编辑完成准备正式发布时，需要将其改为&lt;em>false&lt;/em>。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>其中 &lt;code>-D&lt;/code> 参数指会渲染草稿，通过 &lt;code>hugo new posts&lt;/code> 命令创建出来的文章顶部Meta信息中默认&lt;strong>draft&lt;/strong>设置为 &lt;em>true&lt;/em>,当编辑完成准备正式发布时，需要将其改为 &lt;em>false&lt;/em>。&lt;/p>
 &lt;h2 id="通过github-actions完成自动部署工作">通过Github Actions完成自动部署工作&lt;/h2>
-&lt;p>TODO&lt;/p></description></item></channel></rss>
+&lt;blockquote>
+&lt;p>在 &lt;a class="link" href="https://docs.github.com/cn/actions" target="_blank" rel="noopener"
+>GitHub Actions&lt;/a> 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包括 CI/CD），并将操作合并到完全自定义的工作流程中。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="部署问题">部署问题&lt;/h3>
+&lt;p>现在可以通过 &lt;code>hugo&lt;/code> 命令在 &lt;strong>public&lt;/strong> 文件夹下生成最终页面。我们可以将这个文件夹也加入到Git的版本控制，然后通过在上述 Github 的 &lt;strong>Settings&lt;/strong> 中将发布源改为 &lt;strong>public&lt;/strong> 完成部署。&lt;/p>
+&lt;p>不过，这需要我们每次在完成文章创作，同步至 Github 之前都需要进行生成 &lt;strong>public&lt;/strong> 文件夹，这样不仅麻烦而且会在我们当前的仓库中增加很多冗余文件。好在 Github 官方推出了一件 CI 利器：Github Actions，通过它可以完美地解决上述问题。&lt;/p>
+&lt;h3 id="基本概念">基本概念&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>工作流程&lt;/strong>（workflow）: 工作流程是您添加到仓库的自动化过程。&lt;/li>
+&lt;li>&lt;strong>事件&lt;/strong>（event）: 事件是触发工作流程的特定活动。&lt;/li>
+&lt;li>&lt;strong>作业&lt;/strong>（job）: 作业是在同一运行服务器上执行的一组步骤。&lt;/li>
+&lt;li>&lt;strong>步骤&lt;/strong>（step）: 步骤是可以在作业中运行命令的单个任务。&lt;/li>
+&lt;li>&lt;strong>操作&lt;/strong>（action）: 操作 是独立命令，它们组合到步骤以创建作业。&lt;/li>
+&lt;/ul>
+&lt;h3 id="ci配置">CI配置&lt;/h3>
+&lt;p>在 Github Repository 页中我们可以看到 &lt;strong>Actions&lt;/strong> 菜单，在这里我们可以方便地创建一个 &lt;code>Workflow&lt;/code> ，下面是我的配置：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Yaml" data-lang="Yaml">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">CI&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c"># Controls when the workflow will run&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Triggers the workflow on push or pull request events but only for the main branch&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="l">main]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">pull_request&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="l">main]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Allows you to run this workflow manually from the Actions tab&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">workflow_dispatch&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c"># A workflow run is made up of one or more jobs that can run sequentially or in parallel&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># This workflow contains a single job called &amp;#34;build&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># The type of runner that the job will run on&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-latest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Steps represent a sequence of tasks that will be executed as part of the job&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Git checkout&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">submodules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch Hugo themes (true OR recursive)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch all history for .GitInfo and .Lastmod&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup Hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># You may pin to the exact commit or the version.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># uses: peaceiris/actions-hugo@2e89aa66d0093e4cd14751b3028fc1a179452c2e&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v2.4.13&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;0.84.4&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Runs a single command using the runners shell&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-gh-pages@v3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">if&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github.ref == &amp;#39;refs/heads/main&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">github_token&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.GITHUB_TOKEN }}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上述配置的意思是我们会在每次 &lt;code>push&lt;/code> 代码至 &lt;code>main&lt;/code> 分支的时，在最新的 Ubuntu 系统环境下完成下述操作：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>将 &lt;code>main&lt;/code> 分支最新代码检出&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>安装指定版本的 &lt;code>hugo&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>通过 &lt;code>hugo --minify&lt;/code> 以最小化的方式打包网页&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>将打包后的 &lt;strong>public&lt;/strong> 文件夹推送至当前仓库的 &lt;code>gh-pages&lt;/code> 分支&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>还记得上面在 &lt;em>Pages&lt;/em> 图片的配置么，这时候 Github Pages 就会从 &lt;code>gh-pages&lt;/code> 分支的根目录生成最终的网页。可以在 &lt;strong>Actions&lt;/strong> 页查看 &lt;em>Job&lt;/em> 的执行情况。当执行完成后，一般会需要等待 1 ~ 3 分钟左右，就可以在自己的博客主页看到最新的内容了。&lt;/p>
+&lt;h2 id="后记">后记&lt;/h2>
+&lt;p>通过上面的步骤，我们基本完成了一个属于你自己的博客网站的搭建（别忘了定制你的个性化主题哟~），接下来就随心所欲地开始你的个人创作吧。&lt;/p></description></item></channel></rss>
