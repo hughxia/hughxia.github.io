@@ -8,12 +8,12 @@ tags:
 categories: 
   - Tool
 image: github.png
-description: 本文会介绍如何基于Github Pages + Github Actions + Hugo搭建个人博客，之后你只需要完全专注于文章创作，其余事情完全不用操心。
+description: 本文会介绍如何基于 Github Pages + Github Actions + Hugo 搭建个人博客，之后你只需要完全专注于文章创作，其余事情完全不用操心。
 ---
 
 ## 前言
 
-本文会介绍如何基于Github Pages + Github Actions + Hugo搭建个人博客，之后你只需要完全专注于文章创作，其余事情完全不用操心。它主要包括以下特性：
+本文会介绍如何基于 Github Pages + Github Actions + Hugo 搭建个人博客，之后你只需要完全专注于文章创作，其余事情完全不用操心。它主要包括以下特性：
 
 - 免费托管
 - 版本控制
@@ -36,7 +36,7 @@ description: 本文会介绍如何基于Github Pages + Github Actions + Hugo搭�
 
 ## 创建GitHub Pages站点
 
-> [Github Pages](https://pages.github.com/) is available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server.
+> [Github Pages](https://pages.github.com/) 适用于具有 GitHub Free 和组织的 GitHub Free 的公共仓库，以及具有 GitHub Pro、GitHub Team、GitHub Enterprise Cloud 和 GitHub Enterprise Server 的公共和私有仓库。
 
 Github Pages 可以帮助我们从特定的GitHub Repo生成静态站点。这里我们参照[Github Pages 官方文档](https://docs.github.com/cn/pages/getting-started-with-github-pages/creating-a-github-pages-site)创建属于你的个人站点。
 
@@ -75,7 +75,7 @@ hugo version
 
 ### 新建站点
 
-进入上面创建的 `<user>.github.io` 项目路径，执行下面的命令，Hugo会在当前路径创建站点框架。可以通过 `-f yaml`参数指定配置文件格式。
+进入上面创建的 `<user>.github.io` 项目路径，执行下面的命令，Hugo会在当前路径创建站点框架。默认配置文件格式为 `TOML` 格式，可以通过 `-f yaml` 参数修改为我们熟悉的 `YAML` 格式。
 
 ``` Shell
 hugo new site . -f yaml
@@ -85,13 +85,13 @@ hugo new site . -f yaml
 
 [官方主题页](https://themes.gohugo.io/)有丰富的主题可供选择，下面以我选择的[hugo-theme-stack](https://themes.gohugo.io/themes/hugo-theme-stack/)为例讲解。
 
-这里我们可以通过[Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)机制将主题仓库克隆下来：
+这里我们可以通过 [Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) 机制将主题仓库克隆下来：
 
 ``` Shell
 git submodule add https://github.com/htdvisser/hugo-theme-stack.git themes/hugo-theme-stack
 ```
 
-**注意：** 当我们使用`git clone`命令拉取远程仓库的时候，默认不会拉取子模块代码，可以通过添加`--recurse-submodules`参数来拉取。 或者在主项目中执行以下命令：
+**注意：** 当我们使用 `git clone` 命令拉取远程仓库的时候，默认不会拉取子模块代码，可以通过添加 `--recurse-submodules` 参数来拉取。 或者在主项目中执行以下命令：
 
 ``` Shell
 git submodule update --remote --merge 
@@ -116,7 +116,7 @@ title: Hugh's Blog
 hugo new post/first-post.md
 ```
 
-Hugo会帮我们在md文件头部以与配置文件格式相同语法的形式添加一些Meta信息，我们在`---`下方进行文章内容的编辑。
+Hugo会帮我们在Markdown文件头部以与配置文件格式相同语法的形式添加一些Meta信息，我们在分隔线 `---` 下方进行文章内容的编辑。
 
 ### 本地预览
 
@@ -126,7 +126,7 @@ Hugo会帮我们在md文件头部以与配置文件格式相同语法的形式�
 hugo server -D
 ```
 
-其中 `-D` 参数指会渲染草稿，通过 `hugo new posts`命令创建出来的文章顶部Meta信息中默认**draft**设置为*true*,当编辑完成准备正式发布时，需要将其改为*false*。
+其中 `-D` 参数指会渲染草稿，通过 `hugo new posts` 命令创建出来的文章顶部Meta信息中默认**draft**设置为 *true*,当编辑完成准备正式发布时，需要将其改为 *false*。
 
 ## 通过Github Actions完成自动部署工作
 
