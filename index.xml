@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugh's Blog</title><link>https://hughxia.github.io/</link><description>Recent content on Hugh's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 11 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hughxia.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>基于Github搭建博客指南</title><link>https://hughxia.github.io/p/github-based-blog-guide/</link><pubDate>Sun, 11 Jul 2021 00:16:41 +0800</pubDate><guid>https://hughxia.github.io/p/github-based-blog-guide/</guid><description>&lt;img src="https://hughxia.github.io/p/github-based-blog-guide/github.png" alt="Featured image of post 基于Github搭建博客指南" />&lt;h2 id="前言">前言&lt;/h2>
-&lt;p>本文会介绍如何基于 Github Pages + Github Actions + Hugo 搭建个人博客网站，它主要包括以下特性：&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugh's Blog</title><link>https://hughxia.github.io/</link><description>Recent content on Hugh's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 11 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hughxia.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>基于 Github Pages + Github Actions + Hugo 搭建博客指南</title><link>https://hughxia.github.io/p/github-based-blog-guide/</link><pubDate>Sun, 11 Jul 2021 00:16:41 +0800</pubDate><guid>https://hughxia.github.io/p/github-based-blog-guide/</guid><description>&lt;img src="https://hughxia.github.io/p/github-based-blog-guide/github.png" alt="Featured image of post 基于 Github Pages + Github Actions + Hugo 搭建博客指南" />&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>本文会介绍如何基于 Github Pages + Github Actions + Hugo 搭建个人博客网站，主要包括以下特性：&lt;/p>
 &lt;ul>
-&lt;li>免费托管&lt;/li>
+&lt;li>完全免费&lt;/li>
 &lt;li>版本控制&lt;/li>
-&lt;li>全自动部署&lt;/li>
-&lt;li>Markdown语法支持&lt;/li>
+&lt;li>CI/CD&lt;/li>
+&lt;li>Markdown语法&lt;/li>
 &lt;li>个性化主题&lt;/li>
-&lt;li>支持自定义域名&lt;/li>
 &lt;/ul>
 &lt;h3 id="前置知识">前置知识&lt;/h3>
 &lt;ul>
@@ -30,12 +29,13 @@
 &lt;p>&lt;a class="link" href="https://pages.github.com/" target="_blank" rel="noopener"
 >Github Pages&lt;/a> 适用于具有 GitHub Free 和组织的 GitHub Free 的公共仓库，以及具有 GitHub Pro、GitHub Team、GitHub Enterprise Cloud 和 GitHub Enterprise Server 的公共和私有仓库。&lt;/p>
 &lt;/blockquote>
-&lt;p>Github Pages 可以帮助我们从特定的 GitHub Repo 生成静态站点。这里我们参照&lt;a class="link" href="https://docs.github.com/cn/pages/getting-started-with-github-pages/creating-a-github-pages-site" target="_blank" rel="noopener"
+&lt;p>Github Pages 支持从特定的 GitHub Repo 生成静态站点。这里参照&lt;a class="link" href="https://docs.github.com/cn/pages/getting-started-with-github-pages/creating-a-github-pages-site" target="_blank" rel="noopener"
 >Github Pages 官方文档&lt;/a>创建属于你的个人站点。&lt;/p>
-&lt;h3 id="创建仓库">创建仓库&lt;/h3>
-&lt;p>首先新建一个 Repository，Repository name 根据 Owner 的不同，名字要求分别为 &lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> 或 &lt;code>&amp;lt;organization&amp;gt;.github.io&lt;/code> 格式。因为是个人博客，我们使用自己的用户名。&lt;/p>
+&lt;h3 id="新建仓库">新建仓库&lt;/h3>
+&lt;p>首先新建一个 Repository，Repository name 根据 Owner 的不同，名字要求分别为 &lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> 或 &lt;code>&amp;lt;organization&amp;gt;.github.io&lt;/code> 格式。因为是个人博客，这里使用自己的用户名。&lt;/p>
 &lt;h3 id="查看设置">查看设置&lt;/h3>
-&lt;p>当创建完成后，就可以在 Github Repository 页中看到刚刚创建的 &lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> ，我们可以在此 Repo 上方的 &lt;strong>Settings&lt;/strong> 菜单中的 &lt;em>Pages&lt;/em> 页，进行相关设置。
+&lt;p>当创建完成后，Github Repository 页中就能看到刚刚的 &lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> 仓库。&lt;/p>
+&lt;p>在 &lt;strong>Settings&lt;/strong> 菜单中的 &lt;em>Pages&lt;/em> 栏中，查看并修改相关设置。
 &lt;figure style="flex-grow: 180; flex-basis: 432px">
 &lt;a href="https://hughxia.github.io/p/github-based-blog-guide/github-pages-setting.jpeg" data-size="1148x637">&lt;img src="https://hughxia.github.io/p/github-based-blog-guide/github-pages-setting.jpeg"
 srcset="https://hughxia.github.io/p/github-based-blog-guide/github-pages-setting_hudba47096f0836875a6f919be997c5544_76921_480x0_resize_q75_box.jpeg 480w, https://hughxia.github.io/p/github-based-blog-guide/github-pages-setting_hudba47096f0836875a6f919be997c5544_76921_1024x0_resize_q75_box.jpeg 1024w"
@@ -46,37 +46,37 @@ alt="Setting">
 &lt;/a>
 &lt;figcaption>Setting&lt;/figcaption>
 &lt;/figure>&lt;/p>
-&lt;p>在 &lt;em>Source&lt;/em> 项中可以配置站点的发布源，默认应为 &lt;code>main&lt;/code> 分支的根目录。图中我设置为了 &lt;code>gh-pages&lt;/code> 分支，原因后面再讲。&lt;/p>
-&lt;p>在 &lt;em>Custom domain&lt;/em> 项则可以配置自定义域名，并启用HTTPS。&lt;/p>
+&lt;p>&lt;em>Source&lt;/em> 项配置了站点的发布源，默认应为 &lt;code>main&lt;/code> 分支的根目录。图中设置为了 &lt;code>gh-pages&lt;/code> 分支，原因后面再讲。&lt;/p>
+&lt;p>&lt;em>Custom domain&lt;/em> 项则支持配置自定义域名，并启用HTTPS。&lt;/p>
 &lt;h2 id="使用-hugo-生成博客框架">使用 Hugo 生成博客框架&lt;/h2>
 &lt;blockquote>
 &lt;p>&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
 >Hugo&lt;/a> is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.&lt;/p>
 &lt;/blockquote>
-&lt;p>要搭建完整的 Blog 还需要&lt;em>博客生成器&lt;/em>的帮助。目前主流的三大工具分别为&lt;a class="link" href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener"
+&lt;p>要搭建完整的 Blog 还需要 &lt;strong>博客生成器&lt;/strong> 的帮助。目前主流的三大工具分别为 &lt;a class="link" href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener"
 >Hugo&lt;/a>，&lt;a class="link" href="https://github.com/jekyll/jekyll" target="_blank" rel="noopener"
->Jekyll&lt;/a>和&lt;a class="link" href="https://github.com/hexojs/hexo" target="_blank" rel="noopener"
->Hexo&lt;/a>。其中Hugo的 🌟 最多，编译速度也最快，这里我们选用它来做示例。&lt;/p>
+>Jekyll&lt;/a> 和 &lt;a class="link" href="https://github.com/hexojs/hexo" target="_blank" rel="noopener"
+>Hexo&lt;/a>。其中Hugo的 ⭐ 最多，编译速度也最快，这里选用它来做示例。&lt;/p>
 &lt;h3 id="安装hugo">安装Hugo&lt;/h3>
-&lt;p>MacOS 和 Linux 系统都可以直接在命令行进行安装，Windows 系统的安装可以参照&lt;a class="link" href="https://gohugo.io/getting-started/installing" target="_blank" rel="noopener"
->官方文档&lt;/a>。这里以 Ubuntu20.04 为例，打开终端，输入安装命令：&lt;/p>
+&lt;p>MacOS 和 Linux 系统都可以直接在命令行进行安装，Windows 系统请参考&lt;a class="link" href="https://gohugo.io/getting-started/installing" target="_blank" rel="noopener"
+>官方文档&lt;/a>。以 Ubuntu20.04 为例，打开终端，输入：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">apt install hugo
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>安装完成后，通过以下命令进行确认：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">hugo version
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="新建站点">新建站点&lt;/h3>
-&lt;p>进入上面创建的 &lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> 项目路径，执行下面的命令，Hugo会在当前路径创建站点框架。默认配置文件格式为 &lt;code>TOML&lt;/code> 格式，可以通过 &lt;code>-f yaml&lt;/code> 参数修改为我们熟悉的 &lt;code>YAML&lt;/code> 格式。&lt;/p>
+&lt;p>进入上面创建的 &lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code> 项目路径，执行下面的命令，Hugo会在当前路径创建站点框架。默认配置文件格式为 &lt;code>TOML&lt;/code> 格式，可以通过 &lt;code>-f yaml&lt;/code> 参数修改为较为熟悉的 &lt;code>YAML&lt;/code> 格式。&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">hugo new site . -f yaml
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="选择主题">选择主题&lt;/h3>
 &lt;p>&lt;a class="link" href="https://themes.gohugo.io/" target="_blank" rel="noopener"
->官方主题页&lt;/a>有丰富的主题可供选择，下面以我目前使用的 &lt;a class="link" href="https://themes.gohugo.io/themes/hugo-theme-stack/" target="_blank" rel="noopener"
+>官方主题页&lt;/a>有丰富的主题可供选择，下面以我使用的 &lt;a class="link" href="https://themes.gohugo.io/themes/hugo-theme-stack/" target="_blank" rel="noopener"
 >hugo-theme-stack&lt;/a> 为例。&lt;/p>
-&lt;p>这里我们可以通过 &lt;a class="link" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener"
->Git Submodule&lt;/a> 机制将主题仓库克隆下来：&lt;/p>
+&lt;p>通过 &lt;a class="link" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener"
+>Git Submodule&lt;/a> 机制将该主题仓库添加为子模块：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">git submodule add https://github.com/htdvisser/hugo-theme-stack.git themes/hugo-theme-stack
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>注意：&lt;/strong> 当我们使用 &lt;code>git clone&lt;/code> 命令拉取远程仓库的时候，默认不会拉取子模块代码，可以通过添加 &lt;code>--recurse-submodules&lt;/code> 参数来拉取。 或者在主项目中执行以下命令：&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>注意：&lt;/strong> 当使用 &lt;code>git clone&lt;/code> 命令拉取远程仓库的时候，默认不会拉取子模块仓库，需要通过添加 &lt;code>--recurse-submodules&lt;/code> 参数来同步拉取。 或者执行以下命令：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">git submodule update --remote --merge
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="编辑配置">编辑配置&lt;/h3>
-&lt;p>在项目根目录下可以找到 &lt;code>config.yaml&lt;/code> 文件，这是整个Hugo项目的配置文件，我们修改 &lt;code>baseurl&lt;/code> , &lt;code>languageCode&lt;/code> , &lt;code>title&lt;/code> 和 &lt;code>theme&lt;/code> 这几个字段完成基本配置。主题往往都会提供丰富的自定义配置，可以自行查阅项目文档。&lt;/p>
+&lt;p>在项目根目录下可以找到 &lt;code>config.yaml&lt;/code> 文件，这是整个Hugo项目的配置文件，修改 &lt;code>baseurl&lt;/code> , &lt;code>languageCode&lt;/code> , &lt;code>title&lt;/code> 和 &lt;code>theme&lt;/code> 这几个字段完成基本配置。主题往往都会提供丰富的组件和个性化功能，请参考对应文档进行配置。&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Yaml" data-lang="Yaml">&lt;span class="nt">baseurl&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://hughxia.github.io/&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">languageCode&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">zh-cn&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">theme&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo-theme-stack&lt;/span>&lt;span class="w">
@@ -84,21 +84,22 @@ alt="Setting">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="创建文章">创建文章&lt;/h3>
 &lt;p>执行以下命令创建一篇文章：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">hugo new post/first-post.md
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Hugo会在 Markdown 文件头部以配置文件相同语法的形式添加一些 Meta 信息，我们在分隔线 &lt;code>---&lt;/code> 下方进行文章内容的编辑。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Hugo 会在 Markdown 文件头部以配置文件相同语法的形式添加一些 Meta 信息，在分隔线 &lt;code>---&lt;/code> 下方编辑文章内容。&lt;/p>
 &lt;h3 id="本地预览">本地预览&lt;/h3>
 &lt;p>启动 &lt;code>hugo server&lt;/code>，即可在本地&lt;a class="link" href="http://localhost:1313" target="_blank" rel="noopener"
->http://localhost:1313&lt;/a>进行预览。&lt;/p>
+>http://localhost:1313&lt;/a>实时预览。&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Shell" data-lang="Shell">hugo server -D
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>其中 &lt;code>-D&lt;/code> 参数指会渲染草稿，通过 &lt;code>hugo new posts&lt;/code> 命令创建出来的文章顶部Meta信息中默认&lt;strong>draft&lt;/strong>设置为 &lt;em>true&lt;/em> ，当编辑完成准备正式发布时，需要将其改为 &lt;em>false&lt;/em>。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>加上 &lt;code>-D&lt;/code> 参数会预览草稿内容，通过 &lt;code>hugo new posts&lt;/code> 命令创建出来的文章顶部 Meta 信息中默认 &lt;strong>draft&lt;/strong> 设置为 &lt;em>true&lt;/em> ，当编辑完成准备正式发布时，需要将其改为 &lt;em>false&lt;/em>。&lt;/p>
 &lt;h2 id="通过-github-actions-自动部署">通过 Github Actions 自动部署&lt;/h2>
 &lt;blockquote>
 &lt;p>在 &lt;a class="link" href="https://docs.github.com/cn/actions" target="_blank" rel="noopener"
 >GitHub Actions&lt;/a> 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包括 CI/CD），并将操作合并到完全自定义的工作流程中。&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="部署问题">部署问题&lt;/h3>
-&lt;p>现在可以通过 &lt;code>hugo&lt;/code> 命令在 &lt;strong>public&lt;/strong> 文件夹下生成最终页面。我们可以将这个文件夹也加入到Git的版本控制，然后通过在上述 &lt;strong>Settings&lt;/strong> 页中将发布源改为 &lt;strong>public&lt;/strong> 来完成部署。&lt;/p>
-&lt;p>不过，这需要我们每次在完成文章创作，同步至 Github 之前都需要主动生成 &lt;strong>public&lt;/strong> 文件夹，这样不仅麻烦而且会在我们当前的仓库中增加很多冗余文件。好在 Github 官方推出了 CI 利器：Github Actions，通过它可以完美地解决上述问题。&lt;/p>
+&lt;p>现在通过 &lt;code>hugo&lt;/code> 命令在 &lt;strong>public&lt;/strong> 文件夹下生成最终页面。可以将这个文件夹也加入到 Git 的版本控制，然后通过在上述 &lt;strong>Settings&lt;/strong> 页中将发布源改为 &lt;strong>public&lt;/strong> 来完成部署。&lt;/p>
+&lt;p>不过，这需要在每次在完成文章创作，同步至 Github 之前都需要生成 &lt;strong>public&lt;/strong> 文件夹。这样不仅麻烦，还会在当前仓库中增加很多冗余文件。下面通过 Github 官方推出的 CI 利器 &lt;strong>Github Actions&lt;/strong> 完美地解决上述问题。&lt;/p>
 &lt;h3 id="基本概念">基本概念&lt;/h3>
+&lt;p>首先来了解下 &lt;strong>Github Actions&lt;/strong> 的基本概念：&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>工作流程&lt;/strong>（workflow）: 工作流程是您添加到仓库的自动化过程。&lt;/li>
 &lt;li>&lt;strong>事件&lt;/strong>（event）: 事件是触发工作流程的特定活动。&lt;/li>
@@ -106,8 +107,8 @@ alt="Setting">
 &lt;li>&lt;strong>步骤&lt;/strong>（step）: 步骤是可以在作业中运行命令的单个任务。&lt;/li>
 &lt;li>&lt;strong>操作&lt;/strong>（action）: 操作是独立命令，它们组合到步骤以创建作业。&lt;/li>
 &lt;/ul>
-&lt;h3 id="ci配置">CI配置&lt;/h3>
-&lt;p>在 Github 的 Repo 页上方我们可以看到 &lt;strong>Actions&lt;/strong> 菜单，在这里我们可以方便地创建一个 &lt;code>Workflow&lt;/code> ，下面是我的配置：&lt;/p>
+&lt;h3 id="workflow配置">Workflow配置&lt;/h3>
+&lt;p>在 Github 的 Repo 页的 &lt;strong>Actions&lt;/strong> 菜单中新建一个 &lt;code>Workflow&lt;/code> 进行自定义配置。示例：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Yaml" data-lang="Yaml">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">CI&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c"># Controls when the workflow will run&lt;/span>&lt;span class="w">
@@ -153,10 +154,10 @@ alt="Setting">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">github_token&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.GITHUB_TOKEN }}&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上述配置的意思是我们会在每次 &lt;code>push&lt;/code> 代码至 &lt;code>main&lt;/code> 分支的时，在最新的 Ubuntu 系统环境下依次完成以下操作：&lt;/p>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上述配置意为当 &lt;code>push&lt;/code> 代码至 &lt;code>main&lt;/code> 分支时，在最新的 Ubuntu 系统环境下依次完成以下操作：&lt;/p>
 &lt;ol>
 &lt;li>
-&lt;p>将 &lt;code>main&lt;/code> 分支最新代码检出&lt;/p>
+&lt;p>检出 &lt;code>main&lt;/code> 分支最新代码&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>安装指定版本的 &lt;code>hugo&lt;/code>&lt;/p>
@@ -168,6 +169,6 @@ alt="Setting">
 &lt;p>将打包后的文件夹推送至当前仓库的 &lt;code>gh-pages&lt;/code> 分支&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;p>还记得上面在 &lt;em>Pages&lt;/em> 图片中的配置吧，这时候 Github Pages 就会从 &lt;code>gh-pages&lt;/code> 分支的根目录生成最终的网页。可以在 &lt;strong>Actions&lt;/strong> 页查看 &lt;em>Job&lt;/em> 的执行情况。当执行完成后，一般等待 1 ~ 3 分钟，就可以在自己的博客网站看到最新提交的内容了。&lt;/p>
+&lt;p>还记得上面在 &lt;em>Pages&lt;/em> 图片中的配置么，Github Pages 会从 &lt;code>gh-pages&lt;/code> 分支的根目录生成最终的网页。可以在 &lt;strong>Actions&lt;/strong> 页查看 &lt;em>Job&lt;/em> 的执行情况。当执行完成后，一般等待 1 ~ 3 分钟，就能在自己的博客网站看到最新提交的内容了。&lt;/p>
 &lt;h2 id="后记">后记&lt;/h2>
-&lt;p>通过上面的步骤，我们完成了一个属于你自己的博客网站的搭建（别忘了定制你的个性化主题哟~），接下来就随心所欲地开始你的内容创作吧。&lt;/p></description></item></channel></rss>
+&lt;p>经过上述步骤，就轻松完成了一个属于你自己的博客网站的搭建（别忘了定制个性化主题哦~），接下来就随心所欲地开始内容创作吧。&lt;/p></description></item></channel></rss>
