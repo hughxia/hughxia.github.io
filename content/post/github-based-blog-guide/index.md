@@ -51,12 +51,12 @@ Github Pages 支持从特定的 GitHub Repo 生成静态站点。这里参照[Gi
 
 当创建完成后，Github Repository 页中就能看到刚刚的 `<user>.github.io` 仓库。
 
-在 **Settings** 菜单中的 *Pages* 栏中，查看并修改相关设置。
+在 Settings 菜单中的 Pages 栏中，查看并修改相关设置。
 ![Setting](github-pages-setting.jpeg)
 
-*Source* 项配置了站点的发布源，默认应为 `main` 分支的根目录。图中设置为了 `gh-pages` 分支，原因后面再讲。
+Source 项配置了站点的发布源，默认应为 `main` 分支的根目录。图中设置为了 `gh-pages` 分支，原因后面再讲。
 
-*Custom domain* 项则支持配置自定义域名，并启用HTTPS。
+Custom domain 项则支持配置自定义域名，并启用HTTPS。
 
 ## 使用 Hugo 生成博客框架
 
@@ -131,7 +131,7 @@ Hugo 会在 Markdown 文件头部以配置文件相同语法的形式添加一�
 hugo server -D
 ```
 
-加上 `-D` 参数会预览草稿内容，通过 `hugo new posts` 命令创建出来的文章顶部 Meta 信息中默认 **draft** 设置为 *true* ，当编辑完成准备正式发布时，需要将其改为 *false*。
+加上 `-D` 参数会预览草稿内容，通过 `hugo new posts` 命令创建出来的文章顶部 Meta 信息中默认 draft 设置为 true ，当编辑完成准备正式发布时，需要将其改为 false。
 
 ## 通过 Github Actions 自动部署
 
@@ -139,9 +139,9 @@ hugo server -D
 
 ### 部署问题
 
-现在通过 `hugo` 命令在 **public** 文件夹下生成最终页面。可以将这个文件夹也加入到 Git 的版本控制，然后通过在上述 **Settings** 页中将发布源改为 **public** 来完成部署。
+现在通过 `hugo` 命令在 public 文件夹下生成最终页面。可以将这个文件夹也加入到 Git 的版本控制，然后通过在上述 **Settings** 页中将 Source 中的目录改为 public 来完成部署。
 
-不过，这需要在每次在完成文章创作，同步至 Github 之前都需要生成 **public** 文件夹。这样不仅麻烦，还会在当前仓库中增加很多冗余文件。下面通过 Github 官方推出的 CI 利器 **Github Actions** 完美地解决上述问题。
+不过，这需要在每次在完成文章创作，同步至 Github 之前都需要生成 public 文件夹。这样不仅麻烦，还会在当前仓库中增加很多冗余文件。下面通过 Github 官方推出的 CI 利器 **Github Actions** 完美地解决上述问题。
 
 ### 基本概念
 
@@ -211,11 +211,11 @@ jobs:
 
 2. 安装指定版本的 `hugo`
 
-3. 通过 `hugo --minify` 以最小化的方式打包网页至 **public** 文件
+3. 通过 `hugo --minify` 以最小化的方式打包网页至 public 文件
 
 4. 将打包后的文件夹推送至当前仓库的  `gh-pages` 分支
 
-还记得上面在 *Pages* 图片中的配置么，Github Pages 会从 `gh-pages` 分支的根目录生成最终的网页。可以在 **Actions** 页查看 *Job* 的执行情况。当执行完成后，一般等待 1 ~ 3 分钟，就能在自己的博客网站看到最新提交的内容了。
+还记得在上面图片中在 Pages 也的配置么，Github Pages 会从 `gh-pages` 分支的根目录生成最终的网页。可以在 **Actions** 页查看 Job 的执行情况。当执行完成后，一般等待 1 分钟左右，就能在自己的博客网站看到最新提交的内容了。
 
 ## 后记
 
