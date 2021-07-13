@@ -11,6 +11,6 @@ menu:
         pre: user
 ---
 
-Hi，这里是Hugh，一位云原生领域的开发者，这里主要分享一些相关知识及个人思考。
+Hi，这里是Hugh，一位云原生领域的开发者，本站主要分享一些相关知识及个人思考。
 
 欢迎来 ~~Gayhub~~ [Github](https://github.com/hughxia/hughxia.github.io/issues) 给此博客项目点个 ⭐ 或是提 Issue 与我交流。
