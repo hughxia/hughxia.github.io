@@ -1,6 +1,6 @@
 ---
 title: 关于
-description: 👋👋👋 Hi, I'm Hugh 
+description: 👋👋👋
 date: '2021-07-11'
 slug: about
 license: CC BY-NC-ND
